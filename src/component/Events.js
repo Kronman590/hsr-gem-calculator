@@ -12,7 +12,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useSelector, useDispatch } from "react-redux";
 import { setEvents, clearEvents, setGems, clearGems } from "../actions/calcAction";
 
-const Calculator = () => {
+const Events = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const [monthlyPass, setMonthlyPass] = useState(false)
@@ -57,4 +57,4 @@ const Calculator = () => {
   );
 };
 
-export default Calculator;
+export default Events;
