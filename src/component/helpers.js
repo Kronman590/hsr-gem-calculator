@@ -1,23 +1,36 @@
-export function calcGems() {
-    result = "Gems you will be able to save is: ";
+import { useSelector } from "react-redux";
+
+const state = useSelector((state) => state);
+
+// selectedEvents: [],
+//   monthlyPass: false,
+//   battlePass: false,
+//   shopPulls: false,
+//   abyssStars: 0,
+//   endDate: todayString,
+//   gemInput: "",
+
+export const calcGems = () => {
+    var result = "Gems you will be able to save is: ";
+    const welkinCheck = state.monthlyPass;
+    const bpChecked = state.battlePass;
+    const shopChecked = state.shopPulls;
+    const abyss = calcAbyssGems([document.getElementById('floor9').value, document.getElementById('floor10').value, 
+        document.getElementById('floor11').value, document.getElementById('floor12').value]);
+    bplvl = parseFloat(document.getElementById('lvl').value);
+    if(isNaN(bplvl)) bplvl = 0;
+
     today = processDate(new Date().toISOString().slice(0, 10));
     day = convertDay(new Date().toString().split(" ").slice(0,1)[0]);
     if(today[2] == Number(new Date().toString().split(" ").slice(2,3)[0])) {
         today = incrementDate(today);
     }
     day = ((day == 6) ? 0 : day + 1); 
-    enddate = incrementDate(processDate(document.getElementById('enddate').value));
+    const enddate = incrementDate(processDate(document.getElementById('enddate').value));
     if  (compareDates(today, enddate) > 0) {
         document.getElementById("output").innerHTML = "Please enter a date after today.";
         return;
     }
-    welkinCheck = document.getElementById('welkin').checked;
-    bpChecked = document.getElementById('battlepass').checked;
-    shopChecked = document.getElementById('stardust').checked;
-    abyss = calcAbyssGems([document.getElementById('floor9').value, document.getElementById('floor10').value, 
-        document.getElementById('floor11').value, document.getElementById('floor12').value]);
-    bplvl = parseFloat(document.getElementById('lvl').value);
-    if(isNaN(bplvl)) bplvl = 0;
 
     gems = 0;
     eventDates = [];
@@ -56,15 +69,10 @@ export function calcGems() {
     result += (gems + "<br>");
     result += ("That's " + Math.trunc(gems / 160) + " pulls!");
 
-    document.getElementById("output").innerHTML = result;
-}
+    return result;
+};
 
-export function processDate(d) {
-    d = d.split("-");
-    return d.map(Number);
-}
-
-export function incrementDate(d) {
+function incrementDate(d) {
     ret_d = [0, 0, 0];
     OddDays = [1, 3, 5, 7, 8, 10, 12];
     EvenDays = [4, 6, 9, 11];
@@ -97,22 +105,7 @@ export function incrementDate(d) {
     return ret_d;
 }
 
-export function compareDates(d1, d2) {
-    if (d1[0] > d2[0] || 
-        (d1[0] == d2[0] && d1[1] > d2[1]) || 
-        (d1[0] == d2[0] && d1[1] == d2[1] && d1[2] > d2[2])) 
-        return 1;
-    else if (d1[0] < d2[0] || 
-        (d1[0] == d2[0] && d1[1] < d2[1]) || 
-        (d1[0] == d2[0] && d1[1] == d2[1] && d1[2] < d2[2])) 
-        return -1;
-    else if (d1[0] == d2[0] && d1[1] == d2[1] && d1[2] == d2[2])
-        return 0;
-    else 
-        return NaN;
-}
-
-export function askBPLevel() {
+function askBPLevel() {
     var checkBox = document.getElementById("battlepass");
     var text = document.getElementById("bplvl");
 
@@ -124,7 +117,7 @@ export function askBPLevel() {
     }
 }
 
-export function calcAbyssGems(arr) {
+function calcAbyssGems(arr) {
     ret = 0;
     for(var f in arr) {
         f = arr[f].split(" ");
@@ -135,7 +128,7 @@ export function calcAbyssGems(arr) {
     return ret;
 }
 
-export function convertDay(day) {
+function convertDay(day) {
     if(day == "Sun") return 0;
     if(day == "Mon") return 1;
     if(day == "Tue") return 2;
@@ -145,7 +138,7 @@ export function convertDay(day) {
     if(day == "Sat") return 6;
 }
 
-export function eventGems(d) {
+function eventGems(d) {
     gems = 0;
     for(var e in eventDates) {
         if(compareDates(eventDates[e], d) < 0) {

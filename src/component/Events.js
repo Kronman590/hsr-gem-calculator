@@ -10,7 +10,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useSelector, useDispatch } from "react-redux";
-import { setEvents, clearEvents, setGems, clearGems } from "../actions/calcAction";
+import { setEvents, clearEvents, setGems, clearCalc } from "../actions/calcAction";
 
 const Events = () => {
   const state = useSelector((state) => state);
