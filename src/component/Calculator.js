@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import FormGroup from '@mui/material/FormGroup';
@@ -13,44 +13,39 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useSelector, useDispatch } from "react-redux";
-import { setMonthlyPass, setBattlePass, setShopPulls, setAbyssStars, setEndDate, setGems, clearCalc } from "../actions/calcAction";
-// import { calcGems } from "./helpers";
+import { setMonthlyPass, setBattlePass, setShopPulls, setAbyssStars, setEndDate } from "../actions/calcAction";
+import { calcGems } from "./helpers";
 
 const Calculator = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [dateError, setDateError] = useState(false);
   const [gems, setGemsState] = useState("");
-  const today = new Date();
+  const [bplvl, setBPLevel] = useState("");
+  const [displayPulls, setPullsDisplay] = useState("");
 
   const handleMonthly = (e) => {
     dispatch(setMonthlyPass(e.target.checked));
-  }
+  };
 
   const handleBattlePass = (e) => {
     dispatch(setBattlePass(e.target.checked));
-  }
+  };
 
   const handleShop = (e) => {
     dispatch(setShopPulls(e.target.checked));
-  }
+  };
 
   const handleStars = (e) => {
     dispatch(setAbyssStars(e.target.value));
-  }
+  };
 
   const handleEndDate = (e) => {
-    if (e.$d < today) {
-      setDateError(true);
-    } else {
-      dispatch(setEndDate(e.$d));
-      setDateError(false);
-    }
-  }
+    dispatch(setEndDate(e.$d));
+  };
 
-  const onCalculate = (e) => {
-    console.log(e)
-  }
+  const onCalculate = () => {
+    setPullsDisplay(calcGems(gems, bplvl, state));
+  };
 
   return (
     <Grid container spacing={2}>
@@ -67,6 +62,10 @@ const Calculator = () => {
                 label="BP Level"
                 type="number"
                 size="small"
+                value={bplvl}
+                onChange={(e) => {
+                  setBPLevel(e.target.value);
+                }}
               />
               <br/>
             </>}
@@ -109,7 +108,6 @@ const Calculator = () => {
               type="number"
               value={gems}
               onChange={(e) => {
-                console.log(e.target.value)
                 setGemsState(e.target.value);
               }}
             />
@@ -118,11 +116,11 @@ const Calculator = () => {
           </FormGroup>
         </Card>
       </Grid>
-      <Grid item xs={12}>
+      {displayPulls && <Grid item xs={12}>
         <Card sx={{ minWidth: '100%' }} style={{padding: "100px 0px", background: "pink", border: "2px solid cyan", color: "black"}}>
-          <Typography>Gems you will be able to save is: 150<br/>That's 0 pulls!</Typography>
+          <Typography style={{whiteSpace: 'pre-line'}}>{displayPulls}</Typography>
         </Card>
-      </Grid>
+      </Grid>}
     </Grid>
   );
 };

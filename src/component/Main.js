@@ -40,13 +40,7 @@ const Main = () => {
     <>
       <div className="header">
           <h1>Honkai Star Rail Free Stellar Jade Calculator</h1>
-          <p>This calculator will take into account the various time-based methods of obtaining stellar jades to help set expectations when saving.<br/>
-          <b>Assumptions:</b><br/>Nameless Honor advances 10 levels every Monday, counting only the gems & Special Passes.<br/>
-          Memory of Chaos gems are obtained on reset (every other Monday).<br/>
-          Only Special Passes are counted from the Embers shop. Assumed all 5 are purchased.<br/>
-          Event gems are obtained by default when they begin (i.e. login events last 2 weeks, but rewards are obtained in the first 7 days).<br/>
-          Any events yet to be completed but past their initial days can be selected in the Events tab, and the gems available in past days will be added to the total.</p>
-          <a href="https://github.com/Kronman590/hsr-gem-calculator/issues">Issues? Create a ticket on Github</a>
+          <p>This calculator will take into account the various time-based methods of obtaining stellar jades to help set expectations when saving.<br/></p>
       </div>
       <Tabs value={value} onChange={handleChange} textColor='inherit' indicatorColor=''>
         <Tab label="Calculator"  />
@@ -96,6 +90,15 @@ const Main = () => {
           </Container>
         </div>
       </CustomTabPanel> */}
+      <div className="header">
+        <p><b>Assumptions:</b><br/>Nameless Honor advances 1.5 levels every day, counting only the gems & Special Passes.<br/>
+          Memory of Chaos gems are obtained on reset (every other Monday).<br/>
+          Only Special Passes are counted from the Embers shop. Assumed all 5 are purchased.<br/>
+          All gems available today have already been claimed.<br/>
+          Event gems are obtained by default when they begin (i.e. login events last 2 weeks, but rewards are obtained in the first 7 days).<br/>
+          Any events yet to be completed but past their initial days can be selected in the Events tab, and the gems available in past days will be added to the total.</p>
+          <a href="https://github.com/Kronman590/hsr-gem-calculator/issues">Issues? Create a ticket on Github</a>
+      </div>
     </>
   );
 };
