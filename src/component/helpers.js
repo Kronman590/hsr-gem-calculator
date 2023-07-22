@@ -44,13 +44,13 @@ export const calcGems = (gemInput, bpInput, state) => {
         if(abyss > 0 && (today.getDay() == 1 && mocReset(today))) {
             gems += abyss;
         }
-        if(bpChecked) {
+        if(bpChecked && bplvl < 50) {
             bplvl += 1.5;
             if([10, 20].includes(Math.floor(bplvl)) || [11, 21].includes(bplvl))
                 gems += 160;
             else if(Math.floor(bplvl) == 30 || bplvl == 31)
                 gems += 320;
-            else if(Math.floor(bplvl) >= 50)
+            else if(Math.floor(bplvl) == 50 || bplvl == 51)
                 gems += 680;
         }
         // gems += eventGems(today);
