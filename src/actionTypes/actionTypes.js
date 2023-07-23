@@ -2,6 +2,7 @@ export const SET_EVENTS = "SET_EVENTS";
 export const CLEAR_EVENTS = "CLEAR_EVENTS";
 export const SET_MONTHLYPASS = "SET_MONTHLYPASS";
 export const SET_BATTLEPASS = "SET_BATTLEPASS";
+export const SET_SIMUNIVERSE = "SET_SIMUNIVERSE";
 export const SET_SHOPPULLS = "SET_SHOPPULLS";
 export const SET_ABYSSSTARS = "SET_ABYSSSTARS";
 export const SET_GEMS = "SET_GEMS";

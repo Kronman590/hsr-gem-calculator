@@ -8,28 +8,6 @@ import Events from "./Events";
 const Main = () => {
   const [value, setValue] = React.useState(0);
 
-  // function CustomTabPanel(props) {
-  //   const { children, value, index, ...other } = props;
-  
-  //   return (
-  //     <div
-  //     role="tabpanel"
-  //     hidden={value !== index}
-  //     id={`simple-tabpanel-${index}`}
-  //     aria-labelledby={`simple-tab-${index}`}
-  //     {...other}>
-  //       {children}
-  //     </div>
-  //   );
-  // }
-  
-  // function a11yProps(index) {
-  //   return {
-  //     id: `simple-tab-${index}`,
-  //     'aria-controls': `simple-tabpanel-${index}`,
-  //   };
-  // }
-
   const handleChange = (event, newValue) => {
     if (newValue !== value) {
       setValue(newValue);
@@ -66,34 +44,11 @@ const Main = () => {
               <Events/>
           </Container>
         </div>
-      {/* <CustomTabPanel value={value} index={0}>
-        <div className="body">
-          <Container fixed
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <Calculator page={value}/>
-          </Container>
-        </div>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <div className="body">
-          <Container fixed
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <Events/>
-          </Container>
-        </div>
-      </CustomTabPanel> */}
       <div className="header">
         <p><b>Assumptions:</b><br/>Nameless Honor advances 1.5 levels every day, counting only the gems & Special Passes.<br/>
           Memory of Chaos gems are obtained on reset (every other Monday).<br/>
           Only Special Passes are counted from the Embers shop. Assumed all 5 are purchased.<br/>
+          Simulated Universe is fully completed every Monday.<br/>
           All gems available today have already been claimed.<br/>
           Event gems are obtained by default when they begin (i.e. login events last 2 weeks, but rewards are obtained in the first 7 days).<br/>
           Any events yet to be completed but past their initial days can be selected in the Events tab, and the gems available in past days will be added to the total.</p>

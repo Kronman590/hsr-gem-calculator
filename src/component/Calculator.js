@@ -13,7 +13,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useSelector, useDispatch } from "react-redux";
-import { setMonthlyPass, setBattlePass, setShopPulls, setAbyssStars, setEndDate } from "../actions/calcAction";
+import { setMonthlyPass, setBattlePass, setSimUniverse, setShopPulls, setAbyssStars, setEndDate } from "../actions/calcAction";
 import { calcGems } from "./helpers";
 
 const Calculator = () => {
@@ -21,6 +21,7 @@ const Calculator = () => {
   const dispatch = useDispatch();
   const [gems, setGemsState] = useState("");
   const [bplvl, setBPLevel] = useState("");
+  const [eqlvl, setEqLevel] = useState(0);
   const [displayPulls, setPullsDisplay] = useState("");
 
   const handleMonthly = (e) => {
@@ -29,6 +30,10 @@ const Calculator = () => {
 
   const handleBattlePass = (e) => {
     dispatch(setBattlePass(e.target.checked));
+  };
+
+  const handleSimUniverse = (e) => {
+    dispatch(setSimUniverse(e.target.checked));
   };
 
   const handleShop = (e) => {
@@ -44,7 +49,7 @@ const Calculator = () => {
   };
 
   const onCalculate = () => {
-    setPullsDisplay(calcGems(gems, bplvl, state));
+    setPullsDisplay(calcGems(gems, bplvl, eqlvl, state));
   };
 
   return (
@@ -69,6 +74,29 @@ const Calculator = () => {
               />
               <br/>
             </>}
+            <FormControlLabel onChange={handleSimUniverse} control={<Checkbox checked={state.simUniverse} />} label="Collecting Simulated Universe rewards?" />
+            {state.simUniverse && <>
+              <Typography>Current Equilibrium Level:</Typography>
+              <br/>
+              <Select
+              value={eqlvl}
+              label="Stars"
+              onChange={(e) => {
+                setEqLevel(e.target.value);
+              }}
+              size="small"
+              style={{width:"10rem"}}
+              >
+                <MenuItem value={0}>Equilibrium 0</MenuItem>
+                <MenuItem value={1}>Equilibrium 1</MenuItem>
+                <MenuItem value={2}>Equilibrium 2</MenuItem>
+                <MenuItem value={3}>Equilibrium 3</MenuItem>
+                <MenuItem value={4}>Equilibrium 4</MenuItem>
+                <MenuItem value={5}>Equilibrium 5</MenuItem>
+                <MenuItem value={6}>Equilibrium 6</MenuItem>
+              </Select>
+              <br/>
+            </>}
             <FormControlLabel onChange={handleShop} control={<Checkbox checked={state.shopPulls} />} label="Purchase Passes from Embers shop at reset?" />
             <Typography>Memory of Chaos Stars (select stars you expect to get each reset):</Typography>
             <br/>
@@ -76,6 +104,7 @@ const Calculator = () => {
               value={state.abyssStars}
               label="Stars"
               onChange={handleStars}
+              size="small"
               style={{width:"10rem"}}
             >
               <MenuItem value={0}>0 Stars</MenuItem>

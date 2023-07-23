@@ -1,22 +1,16 @@
-// import { eventList } from "./eventList";
+import { eventList } from "./eventList";
 
-
-// selectedEvents: [],
-//   monthlyPass: false,
-//   battlePass: false,
-//   shopPulls: false,
-//   abyssStars: 0,
-//   endDate: todayString,
-//   gemInput: "",
-
-export const calcGems = (gemInput, bpInput, state) => {
+export const calcGems = (gemInput, bpInput, eqlvl, state) => {
 
     var result = "Gems you will be able to save is: ";
     const welkinCheck = state.monthlyPass;
     const bpChecked = state.battlePass;
+    const simUChecked = state.simUniverse;
     const shopChecked = state.shopPulls;
     const abyss = state.abyssStars * 60 / 3;
     var bplvl = Number(bpInput);
+
+    const includeEvents = state.selectedEvents;
 
     const today = new Date();
     today.setHours(0,0,0,0);
@@ -28,11 +22,18 @@ export const calcGems = (gemInput, bpInput, state) => {
         return "Please enter a date after today.";
     }
 
+    const simUMap = {
+        0: 75,
+        1: 75,
+        2: 105,
+        3: 135,
+        4: 165,
+        5: 195,
+        6: 225
+    };
+
     var gems = Number(gemInput);
-    // const eventDates = [];
-    // for (var e in events) {
-    //     eventDates.push(processDate(events[e][1]));
-    // }
+    
     while(today <= enddate) {
         gems += 60;
         if(welkinCheck) {
@@ -53,7 +54,10 @@ export const calcGems = (gemInput, bpInput, state) => {
             else if(Math.floor(bplvl) == 50 || bplvl == 51)
                 gems += 680;
         }
-        // gems += eventGems(today);
+        if (simUChecked && today.getDay() == 1) {
+            gems += simUMap[eqlvl];
+        }
+        gems += eventGems(today, includeEvents);
         today.setDate(today.getDate() + 1);
     }
     result += (gems + "\n");
@@ -71,18 +75,17 @@ const mocReset = (day) => {
     return (diffDays % 14) == 0;
 };
 
-// function eventGems(d) {
-//     gems = 0;
-//     for(var e in eventDates) {
-//         if(compareDates(eventDates[e], d) < 0) {
-//             continue;
-//         }
-//         else if(compareDates(eventDates[e], d) > 0) {
-//             return gems;
-//         }
-//         else if(compareDates(eventDates[e], d) == 0) {
-//             gems += events[e][2];
-//         }
-//     }
-//     return gems;
-// }
+const eventGems = (day, includeEvents) => {
+    const dayString = (day.getYear()+1900) + "-" + (day.getMonth() < 9 ? "0"+(day.getMonth()+1) : day.getMonth()+1) + "-" + day.getDate();
+    var gems = 0;
+    const eventsToday = eventList.filter((e) => (e[1] == dayString && !includeEvents.includes(e)));
+    eventsToday.forEach((e) => gems += e[2])
+    const acc = [];
+    includeEvents.forEach((e) => {
+        if (!acc.includes(e[0])) {
+            gems += e[2];
+            acc.push(e[0]);
+        }
+    })
+    return gems;
+}

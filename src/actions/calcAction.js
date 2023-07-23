@@ -1,9 +1,9 @@
-import { SET_EVENTS, CLEAR_EVENTS, SET_MONTHLYPASS, SET_BATTLEPASS, SET_SHOPPULLS, SET_ABYSSSTARS, SET_ENDDATE, SET_GEMS, CLEAR_CALC } from "../actionTypes/actionTypes";
+import { SET_EVENTS, CLEAR_EVENTS, SET_MONTHLYPASS, SET_BATTLEPASS, SET_SIMUNIVERSE, SET_SHOPPULLS, SET_ABYSSSTARS, SET_ENDDATE, SET_GEMS, CLEAR_CALC } from "../actionTypes/actionTypes";
 
-const setEvents = () => {
+const setEvents = (input) => {
   return {
     type: SET_EVENTS,
-
+    events: input
   };
 };
 
@@ -23,6 +23,13 @@ const setMonthlyPass = (input) => {
 const setBattlePass = (input) => {
   return {
     type: SET_BATTLEPASS,
+    input: input
+  };
+};
+
+const setSimUniverse = (input) => {
+  return {
+    type: SET_SIMUNIVERSE,
     input: input
   };
 };
@@ -61,4 +68,4 @@ const clearCalc = () => {
   };
 };
 
-export { setEvents, clearEvents, setMonthlyPass, setBattlePass, setShopPulls, setAbyssStars, setEndDate, setGems, clearCalc };
+export { setEvents, clearEvents, setMonthlyPass, setBattlePass, setSimUniverse, setShopPulls, setAbyssStars, setEndDate, setGems, clearCalc };
