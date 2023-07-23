@@ -47,7 +47,6 @@ function Row (props) {
     } else {
       dispatch(setEvents(state.selectedEvents.filter((e) => !events.includes(e))));
     }
-    console.log(state.selectedEvents);
   };
 
   const disableCheckbox = (evStart) => {

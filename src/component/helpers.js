@@ -10,7 +10,7 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
     const abyss = state.abyssStars * 60 / 3;
     var bplvl = Number(bpInput);
 
-    const includeEvents = state.selectedEvents;
+    const includeEvents = JSON.parse(JSON.stringify(state.selectedEvents));
 
     const today = new Date();
     today.setHours(0,0,0,0);
@@ -80,12 +80,13 @@ const eventGems = (day, includeEvents) => {
     var gems = 0;
     const eventsToday = eventList.filter((e) => (e[1] == dayString && !includeEvents.includes(e)));
     eventsToday.forEach((e) => gems += e[2])
-    const acc = [];
+    const acc = {};
     includeEvents.forEach((e) => {
-        if (!acc.includes(e[0])) {
+        if (!(Object.keys(acc)).includes(e[0])) {
             gems += e[2];
-            acc.push(e[0]);
+            acc[e[0]] = includeEvents.indexOf(e);
         }
     })
+    Object.values(acc).forEach(v => includeEvents.splice(v, 1));
     return gems;
 }
