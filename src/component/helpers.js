@@ -87,6 +87,6 @@ const eventGems = (day, includeEvents) => {
             acc[e[0]] = includeEvents.indexOf(e);
         }
     })
-    Object.values(acc).forEach(v => includeEvents.splice(v, 1));
+    Object.values(acc).reverse().forEach(v => includeEvents.splice(v, 1));
     return gems;
 }
