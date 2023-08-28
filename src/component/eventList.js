@@ -1,4 +1,50 @@
 export const eventList = [
+    ["1.3 Patch Compensation","2023-08-29",600],
+    ["Dan IL Showcase","2023-08-29",20],
+    ["Trailblaze Mission Xianzhou 3","2023-08-29",190],
+    ["Dan Heng Companion Mission","2023-08-29",100],
+    ["Luka Companion Mission","2023-08-29",100],
+    ["Gift of Odyssey","2023-08-29",160],
+    ["Gift of Odyssey","2023-08-30",160],
+    ["Gift of Odyssey","2023-08-31",320],
+    ["Aurum Alley's Hustle and Bustle","2023-08-31",200],
+    ["Gift of Odyssey","2023-09-01",160],
+    ["Aurum Alley's Hustle and Bustle","2023-09-01",200],
+    ["Gift of Odyssey","2023-09-02",160],
+    ["Aurum Alley's Hustle and Bustle","2023-09-02",200],
+    ["Gift of Odyssey","2023-09-03",160],
+    ["Aurum Alley's Hustle and Bustle","2023-09-03",200],
+    ["Gift of Odyssey","2023-09-04",480],
+    ["Aurum Alley's Hustle and Bustle","2023-09-04",200],
+    ["Mihoyo Web Login","2023-09-04",20],
+    ["Aurum Alley's Hustle and Bustle","2023-09-05",200],
+    ["Mihoyo Web Login","2023-09-11",20],
+    ["Mihoyo Web Login","2023-09-18",20],
+    ["Aurum Alley's Hustle and Bustle","2023-09-18",0],
+    ["Dan IL Showcase","2023-09-20",0],
+    ["Fu Xuan Showcase","2023-09-20",20],
+    ["March 7th Companion Mission","2023-09-20",100],
+    ["Lynx Companion Mission","2023-09-20",100],
+    ["Space Station Task Force","2023-09-21",80],
+    ["Space Station Task Force","2023-09-22",80],
+    ["Space Station Task Force","2023-09-23",80],
+    ["Space Station Task Force","2023-09-24",80],
+    ["Space Station Task Force","2023-09-25",80],
+    ["Space Station Task Force","2023-09-26",80],
+    ["Space Station Task Force","2023-09-27",80],
+    ["Space Station Task Force","2023-09-28",80],
+    ["1.4 Livestream Codes","2023-09-29",300],
+    ["Space Station Task Force","2023-09-29",80],
+    ["1.4 Livestream Codes","2023-09-30",0],
+    ["Space Station Task Force","2023-09-30",80],
+    ["Space Station Task Force","2023-10-01",80],
+    ["Space Station Task Force","2023-10-02",80],
+    ["Mihoyo Web Login","2023-10-04",20],
+    ["1.4 Patch Compensation","2023-10-10",600],
+];
+
+// eslint-disable-next-line no-unused-vars
+const past_events = [
     ["1.2 Patch Compensation","2023-07-18",720],
     ["Blade Showcase","2023-07-18",20],
     ["Stellar Warp Showcase","2023-07-18",140],
@@ -40,10 +86,4 @@ export const eventList = [
     ["1.3 Livestream Codes","2023-08-19",0],
     ["Mihoyo Web Login","2023-08-19",20],
     ["Underground Treasure Hunt","2023-08-28",0],
-    ["1.3 Patch Compensation","2023-08-29",600],
-];
-
-// eslint-disable-next-line no-unused-vars
-const past_events = [
-    ["1.2 Patch Compensation","2023-07-18",720],
 ];
