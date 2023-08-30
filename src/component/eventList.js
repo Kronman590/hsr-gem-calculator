@@ -1,7 +1,7 @@
 export const eventList = [
     ["1.3 Patch Compensation","2023-08-29",600],
     ["Dan IL Showcase","2023-08-29",20],
-    ["Trailblaze Mission Xianzhou 3","2023-08-29",190],
+    ["Trailblaze Mission Xianzhou 3","2023-08-29",90],
     ["Dan Heng Companion Mission","2023-08-29",100],
     ["Luka Companion Mission","2023-08-29",100],
     ["Gift of Odyssey","2023-08-29",160],
