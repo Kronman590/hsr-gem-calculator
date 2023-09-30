@@ -36,9 +36,16 @@ export const eventList = [
     ["Space Station Task Force","2023-09-28",80],
     ["1.4 Livestream Codes","2023-09-29",300],
     ["Space Station Task Force","2023-09-29",80],
+    ["Gift of Radiance","2023-09-29",100],
     ["1.4 Livestream Codes","2023-09-30",0],
     ["Space Station Task Force","2023-09-30",80],
+    ["Gift of Radiance","2023-09-30",100],
+    ["Gift of Radiance","2023-10-01",100],
+    ["Gift of Radiance","2023-10-02",100],
+    ["Gift of Radiance","2023-10-03",100],
+    ["Gift of Radiance","2023-10-04",100],
     ["Mihoyo Web Login","2023-10-04",20],
+    ["Gift of Radiance","2023-10-05",200],
     ["1.4 Patch Compensation","2023-10-10",600],
 ];
 
