@@ -43,10 +43,10 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
         if(shopChecked && today.getDate() == 1) {
             gems += 160*5;
         }
-        if(memOfChaos > 0 && (today.getDay() == 1 && mocReset(today, true))) {
+        if(memOfChaos > 0 && (today.getDay() == 1 && mocReset(today, false))) {
             gems += memOfChaos;
         }
-        if(pureFiction > 0 && (today.getDay() == 1 && mocReset(today, false))) {
+        if(pureFiction > 0 && (today.getDay() == 1 && mocReset(today, true))) {
             gems += pureFiction;
         }
         if(bpChecked && bplvl < 50) {
