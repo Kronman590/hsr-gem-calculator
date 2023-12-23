@@ -10,7 +10,7 @@ const initialState = {
   battlePass: false,
   simUniverse: false,
   shopPulls: false,
-  abyssStars: 0,
+  abyssStars: [0,0],
   endDate: todayString,
   gemInput: "",
 };

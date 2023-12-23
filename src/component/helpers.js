@@ -7,7 +7,8 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
     const bpChecked = state.battlePass;
     const simUChecked = state.simUniverse;
     const shopChecked = state.shopPulls;
-    const abyss = state.abyssStars * 60 / 3;
+    const memOfChaos = state.abyssStars[0] * 60 / 3;
+    const pureFiction = state.abyssStars[1] * 60;
     var bplvl = Number(bpInput);
 
     const includeEvents = JSON.parse(JSON.stringify(state.selectedEvents));
@@ -42,8 +43,11 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
         if(shopChecked && today.getDate() == 1) {
             gems += 160*5;
         }
-        if(abyss > 0 && (today.getDay() == 1 && mocReset(today))) {
-            gems += abyss;
+        if(memOfChaos > 0 && (today.getDay() == 1 && mocReset(today, true))) {
+            gems += memOfChaos;
+        }
+        if(pureFiction > 0 && (today.getDay() == 1 && mocReset(today, false))) {
+            gems += pureFiction;
         }
         if(bpChecked && bplvl < 50) {
             bplvl += 1.5;
@@ -51,8 +55,6 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
                 gems += 160;
             else if(Math.floor(bplvl) == 30 || bplvl == 31)
                 gems += 320;
-            else if(Math.floor(bplvl) == 50 || bplvl == 51)
-                gems += 680;
         }
         if (simUChecked && today.getDay() == 1) {
             gems += simUMap[eqlvl];
@@ -66,13 +68,14 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
     return result;
 };
 
-const mocReset = (day) => {
+const mocReset = (day, pf) => {
     const oneDay = 24 * 60 * 60 * 1000;
-    const firstReset = new Date("2023-05-01");
+    const date = pf ? "2024-01-08" : "2023-12-25"
+    const firstReset = new Date(date);
     firstReset.setMinutes(firstReset.getMinutes() + firstReset.getTimezoneOffset())
 
     const diffDays = Math.round(Math.abs((day - firstReset) / oneDay));
-    return (diffDays % 14) == 0;
+    return (diffDays % 28) == 0;
 };
 
 const eventGems = (day, includeEvents) => {

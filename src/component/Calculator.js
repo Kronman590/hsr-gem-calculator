@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import FormGroup from '@mui/material/FormGroup';
@@ -41,7 +42,7 @@ const Calculator = () => {
   };
 
   const handleStars = (e) => {
-    dispatch(setAbyssStars(e.target.value));
+    dispatch(setAbyssStars(e));
   };
 
   const handleEndDate = (e) => {
@@ -98,27 +99,59 @@ const Calculator = () => {
               <br/>
             </>}
             <FormControlLabel onChange={handleShop} control={<Checkbox checked={state.shopPulls} />} label="Purchase Passes from Embers shop at reset?" />
-            <Typography>Memory of Chaos Stars (select stars you expect to get each reset):</Typography>
-            <br/>
-            <Select
-              value={state.abyssStars}
-              label="Stars"
-              onChange={handleStars}
-              size="small"
-              style={{width:"10rem"}}
-            >
-              <MenuItem value={0}>0 Stars</MenuItem>
-              <MenuItem value={3}>3 Stars</MenuItem>
-              <MenuItem value={6}>6 Stars</MenuItem>
-              <MenuItem value={9}>9 Stars</MenuItem>
-              <MenuItem value={12}>12 Stars</MenuItem>
-              <MenuItem value={15}>15 Stars</MenuItem>
-              <MenuItem value={18}>18 Stars</MenuItem>
-              <MenuItem value={21}>21 Stars</MenuItem>
-              <MenuItem value={24}>24 Stars</MenuItem>
-              <MenuItem value={27}>27 Stars</MenuItem>
-              <MenuItem value={30}>30 Stars</MenuItem>
-            </Select>
+            <Grid container>
+              <Box style={{width:"22.5%"}}/>
+              <Grid item xs={3}>
+                <Typography>Memory of Chaos Stars (select stars you expect to get each reset):</Typography>
+                <br/>
+                <Select
+                  value={state.abyssStars[0]}
+                  label="Stars"
+                  onChange={(e) => handleStars([e.target.value, state.abyssStars[1]])}
+                  size="small"
+                  style={{width:"10rem"}}
+                >
+                  <MenuItem value={0}>0 Stars</MenuItem>
+                  <MenuItem value={3}>3 Stars</MenuItem>
+                  <MenuItem value={6}>6 Stars</MenuItem>
+                  <MenuItem value={9}>9 Stars</MenuItem>
+                  <MenuItem value={12}>12 Stars</MenuItem>
+                  <MenuItem value={15}>15 Stars</MenuItem>
+                  <MenuItem value={18}>18 Stars</MenuItem>
+                  <MenuItem value={21}>21 Stars</MenuItem>
+                  <MenuItem value={24}>24 Stars</MenuItem>
+                  <MenuItem value={27}>27 Stars</MenuItem>
+                  <MenuItem value={30}>30 Stars</MenuItem>
+                  <MenuItem value={33}>33 Stars</MenuItem>
+                  <MenuItem value={36}>36 Stars</MenuItem>
+                </Select>
+              </Grid>
+              <Grid item xs={3}>
+                <Typography>Pure Fiction Stars (select stars you expect to get each reset):</Typography>
+                <br/>
+                <Select
+                  value={state.abyssStars[1]}
+                  label="Stars"
+                  onChange={(e) => handleStars([state.abyssStars[0], e.target.value])}
+                  size="small"
+                  style={{width:"10rem"}}
+                >
+                  <MenuItem value={0}>0 Stars</MenuItem>
+                  <MenuItem value={1}>1 Stars</MenuItem>
+                  <MenuItem value={2}>2 Stars</MenuItem>
+                  <MenuItem value={3}>3 Stars</MenuItem>
+                  <MenuItem value={4}>4 Stars</MenuItem>
+                  <MenuItem value={5}>5 Stars</MenuItem>
+                  <MenuItem value={6}>6 Stars</MenuItem>
+                  <MenuItem value={7}>7 Stars</MenuItem>
+                  <MenuItem value={8}>8 Stars</MenuItem>
+                  <MenuItem value={9}>9 Stars</MenuItem>
+                  <MenuItem value={10}>10 Stars</MenuItem>
+                  <MenuItem value={11}>11 Stars</MenuItem>
+                  <MenuItem value={12}>12 Stars</MenuItem>
+                </Select>
+              </Grid>
+            </Grid>
             <br/>
             <Typography>Select end date for calculation:</Typography>
             <br/>
