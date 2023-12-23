@@ -20,7 +20,7 @@ export const eventList = [
     ["Gift of Odyssey","2023-12-31",160],
     ["Simulated Universe: Gold and Gears","2023-12-31",120],
     ["Critter Pick","2023-12-31",50],
-    ["Gift of Odyssey","2024-01-01",800],
+    ["Gift of Odyssey","2024-01-01",480],
     ["Simulated Universe: Gold and Gears","2024-01-01",120],
     ["Simulated Universe: Gold and Gears","2024-01-02",120],
     ["Simulated Universe: Gold and Gears","2024-01-03",120],
