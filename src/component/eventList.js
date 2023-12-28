@@ -45,17 +45,6 @@ export const eventList = [
 
 // eslint-disable-next-line no-unused-vars
 const past_events = [
-    ["Penacony Food Fest","2023-02-",70],
-    ["Penacony Food Fest","2023-02-",70],
-    ["Penacony Food Fest","2023-02-",70],
-    ["Penacony Food Fest","2023-02-",70],
-    ["Penacony Food Fest","2023-02-",70],
-    ["Penacony Food Fest","2023-02-",70],
-    ["Penacony Food Fest","2023-02-",70],
-    ["Dream Chaser News","2023-02-",120],
-    ["Dream Chaser News","2023-02-",120],
-    ["Dream Chaser News","2023-02-",160],
-    ["Dream Chaser News","2023-02-",100],
     ["1.2 Patch Compensation","2023-07-18",720],
     ["Blade Showcase","2023-07-18",20],
     ["Stellar Warp Showcase","2023-07-18",140],
