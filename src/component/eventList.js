@@ -2,7 +2,7 @@ export const eventList = [
     ["2.0 Celebration Livestream Codes","2023-03-05",300],
     ["2.0 Patch Compensation","2023-02-05",600],
     ["Black Swan/Inbibitor Lunae Trial","2023-02-05",40],
-    ["Trailblaze Mission: Long Day's Journey Into Night","2023-02-05",130],
+    ["Trailblaze Mission: Long Day's Journey Into Night","2023-02-05",150],
     ["Gift of Stellarium","2023-02-05",1600],
     ["Gift of Odyssey","2023-02-05",160],
     ["Dream Chaser News","2023-02-05",120],
