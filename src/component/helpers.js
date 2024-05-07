@@ -79,7 +79,7 @@ const mocReset = (day, pf) => {
 };
 
 const eventGems = (day, includeEvents) => {
-    const dayString = (day.getYear()+1900) + "-" + (day.getMonth() < 9 ? "0"+(day.getMonth()+1) : day.getMonth()+1) + "-" + day.getDate();
+    const dayString = (day.getYear()+1900) + "-" + padDate(day.getMonth()+1) + "-" + padDate(day.getDate());
     var gems = 0;
     const eventsToday = eventList.filter((e) => (e[1] == dayString && !includeEvents.includes(e)));
     eventsToday.forEach((e) => gems += e[2])
@@ -92,4 +92,8 @@ const eventGems = (day, includeEvents) => {
     })
     Object.values(acc).reverse().forEach(v => includeEvents.splice(v, 1));
     return gems;
+}
+
+const padDate = (date) => {
+    return date <= 9 ? "0"+date : date
 }
