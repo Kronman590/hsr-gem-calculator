@@ -1,6 +1,6 @@
 export const eventList = [
     ["2.2 Patch Compensation","2024-05-07",600],
-    ["Trailblaze Mission: The Fool Always Rings Twice","2024-05-07",680],
+    ["Trailblaze Mission: In Our Time","2024-05-07",1060],
     ["Gift of Odyssey","2024-05-07",160],
     ["Robin/Topaz Trial","2024-05-07",40],
     ["Clockie: Dreamjoy Memoir", "2024-05-07", 130],
