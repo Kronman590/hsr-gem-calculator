@@ -7,8 +7,9 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
     const bpChecked = state.battlePass;
     const simUChecked = state.simUniverse;
     const shopChecked = state.shopPulls;
-    const memOfChaos = state.abyssStars[0] * 60 / 3;
-    const pureFiction = state.abyssStars[1] * 60;
+    const memOfChaos = state.abyssStars[0] / 3 * 60 + 20 * Math.max(0, state.abyssStars[1] / 3 - 8);
+    const pureFiction = state.abyssStars[1] * 60 + 20 * Math.max(0, state.abyssStars[1] - 8);
+    const apocolypticShadow = state.abyssStars[2] * 60 + 20 * Math.max(0, state.abyssStars[2] - 8);
     var bplvl = Number(bpInput);
 
     const includeEvents = JSON.parse(JSON.stringify(state.selectedEvents));
@@ -43,11 +44,14 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
         if(shopChecked && today.getDate() == 1) {
             gems += 160*5;
         }
-        if(memOfChaos > 0 && (today.getDay() == 1 && mocReset(today, false))) {
+        if(memOfChaos > 0 && (today.getDay() == 1 && mocReset(today, 'moc'))) {
             gems += memOfChaos;
         }
-        if(pureFiction > 0 && (today.getDay() == 1 && mocReset(today, true))) {
+        if(pureFiction > 0 && (today.getDay() == 1 && mocReset(today, 'pf'))) {
             gems += pureFiction;
+        }
+        if(apocolypticShadow > 0 && (today.getDay() == 1 && mocReset(today, 'as'))) {
+            gems += apocolypticShadow;
         }
         if(bpChecked && bplvl < 50) {
             bplvl += 1.5;
@@ -68,14 +72,19 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
     return result;
 };
 
-const mocReset = (day, pf) => {
+const mocReset = (day, type) => {
     const oneDay = 24 * 60 * 60 * 1000;
-    const date = pf ? "2024-01-08" : "2023-12-25"
+    const dateMap = {
+        'moc': "2024-06-10",
+        'as': "2024-06-24",
+        'pf': "2024-07-08"
+    };
+    const date = dateMap[type];
     const firstReset = new Date(date);
     firstReset.setMinutes(firstReset.getMinutes() + firstReset.getTimezoneOffset())
 
     const diffDays = Math.round(Math.abs((day - firstReset) / oneDay));
-    return (diffDays % 28) == 0;
+    return (diffDays % 42) == 0;
 };
 
 const eventGems = (day, includeEvents) => {

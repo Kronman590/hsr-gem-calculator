@@ -100,14 +100,14 @@ const Calculator = () => {
             </>}
             <FormControlLabel onChange={handleShop} control={<Checkbox checked={state.shopPulls} />} label="Purchase Passes from Embers shop at reset?" />
             <Grid container>
-              <Box style={{width:"22.5%"}}/>
+              <Box style={{width:"12%"}}/>
               <Grid item xs={3}>
                 <Typography>Memory of Chaos Stars (select stars you expect to get each reset):</Typography>
                 <br/>
                 <Select
                   value={state.abyssStars[0]}
                   label="Stars"
-                  onChange={(e) => handleStars([e.target.value, state.abyssStars[1]])}
+                  onChange={(e) => handleStars([e.target.value, state.abyssStars[1], state.abyssStars[2]])}
                   size="small"
                   style={{width:"10rem"}}
                 >
@@ -132,7 +132,32 @@ const Calculator = () => {
                 <Select
                   value={state.abyssStars[1]}
                   label="Stars"
-                  onChange={(e) => handleStars([state.abyssStars[0], e.target.value])}
+                  onChange={(e) => handleStars([state.abyssStars[0], e.target.value, state.abyssStars[2]])}
+                  size="small"
+                  style={{width:"10rem"}}
+                >
+                  <MenuItem value={0}>0 Stars</MenuItem>
+                  <MenuItem value={1}>1 Stars</MenuItem>
+                  <MenuItem value={2}>2 Stars</MenuItem>
+                  <MenuItem value={3}>3 Stars</MenuItem>
+                  <MenuItem value={4}>4 Stars</MenuItem>
+                  <MenuItem value={5}>5 Stars</MenuItem>
+                  <MenuItem value={6}>6 Stars</MenuItem>
+                  <MenuItem value={7}>7 Stars</MenuItem>
+                  <MenuItem value={8}>8 Stars</MenuItem>
+                  <MenuItem value={9}>9 Stars</MenuItem>
+                  <MenuItem value={10}>10 Stars</MenuItem>
+                  <MenuItem value={11}>11 Stars</MenuItem>
+                  <MenuItem value={12}>12 Stars</MenuItem>
+                </Select>
+              </Grid>
+              <Grid item xs={3}>
+                <Typography>Apocolyptic Shadow Stars (select stars you expect to get each reset):</Typography>
+                <br/>
+                <Select
+                  value={state.abyssStars[2]}
+                  label="Stars"
+                  onChange={(e) => handleStars([state.abyssStars[0], state.abyssStars[1], e.target.value])}
                   size="small"
                   style={{width:"10rem"}}
                 >
