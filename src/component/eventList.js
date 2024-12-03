@@ -22,6 +22,7 @@ export const eventList = [
     ["Gift of Odyssey","2024-12-03",160],
     ["Gift of Odyssey","2024-12-04",160],
     ["Mihoyo Web Login","2024-12-04",20],
+    ["Thank-You Letter","2024-12-04",1000],
     ["Gift of Odyssey","2024-12-05",320],
     ["Gift of Odyssey","2024-12-06",160],
     ["Gift of Odyssey","2024-12-07",160],
