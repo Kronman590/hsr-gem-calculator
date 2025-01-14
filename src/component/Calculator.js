@@ -53,6 +53,10 @@ const Calculator = () => {
     setPullsDisplay(calcGems(gems, bplvl, eqlvl, state));
   };
 
+  const onMax = () => {
+    handleStars([36, 12, 12]);
+  }
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -177,18 +181,20 @@ const Calculator = () => {
                 </Select>
               </Grid>
             </Grid>
-            <br/>
+            <Box/>
+            <Button variant="contained" size="small" onClick={onMax}>Maximize endgame stars</Button>
+            <Box/>
             <Typography>Select end date for calculation:</Typography>
-            <br/>
+            <Box/>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker 
                   label="End date"
                   onChange={handleEndDate}
                   value={state.endDate} />
             </LocalizationProvider>
-            <br/>
+            <Box/>
             <Typography>Starting Stellar Jade Count:</Typography>
-            <br/>
+            <Box/>
             <TextField
               id="outlined-number"
               label="Stellar Jades"
@@ -198,7 +204,7 @@ const Calculator = () => {
                 setGemsState(e.target.value);
               }}
             />
-            <br/>
+            <Box/>
             <Button variant="contained" onClick={onCalculate}>Calculate</Button>
           </FormGroup>
         </Card>
