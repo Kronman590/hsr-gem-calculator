@@ -2,7 +2,7 @@ export const eventList = [
     ["3.4 Patch Compensation","2025-07-01",600],
     ["Jingliu/Blade/Kafka/Silver Wolf Trial","2025-07-01",80],
     ["Phainon/Tribbie/Sunday/Sparkle Trial","2025-07-01",80],
-    ["Trailblaze Mission: For the Sun is Set to Die","2024-07-01",640],
+    ["Trailblaze Mission: For the Sun is Set to Die","2024-07-01",550],
     ["As I've Written","2024-07-01",380],
     ["Tidal Bounty","2024-07-01",150],
     ["Origami Bird Clash","2025-07-01",30],
