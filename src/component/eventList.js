@@ -1,7 +1,7 @@
 export const eventList = [
     ["3.6 Patch Compensation","2025-09-23",600],
     ["Evernight/The Herta Trial","2025-09-23",40],
-    ["Trailblaze Mission: Back to Earth in Evernight","2024-09-23",760],
+    ["Trailblaze Mission: Back to Earth in Evernight","2024-09-23",670],
     ["As I've Written","2024-09-23",180],
     ["Tidal Bounty","2024-09-23",150],
     ["Divergent Universe: Protean Hero","2025-09-23",500],
