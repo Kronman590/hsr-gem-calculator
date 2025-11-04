@@ -28,6 +28,8 @@ function Row (props) {
       expandExtra ? data.events.reduce((acc, ev) => {acc[ev[1]] = false; return acc;}, {[data.name]: false}) : 
       {[data.name]: false}
     );
+  
+  const showSubtitle = data.events.some(a => a.length > 3);
 
   const handleCheckbox = (checked, events, date="") => {
     const newSelectedEvents = selectedEvents;
@@ -89,6 +91,7 @@ function Row (props) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
+                    {showSubtitle && <TableCell align="center">Subtitle</TableCell>}
                     <TableCell align="center">Date</TableCell>
                     <TableCell align="center">Stellar Jades</TableCell>
                     <TableCell align="center">Uncompleted?</TableCell>
@@ -97,6 +100,9 @@ function Row (props) {
                 <TableBody>
                   {data.events.map((indvGemCount) => (
                     <TableRow key={indvGemCount[1]}>
+                      {showSubtitle && <TableCell component="th" scope="row" align="center">
+                        {indvGemCount[3]}
+                      </TableCell>}
                       <TableCell component="th" scope="row" align="center">
                         {indvGemCount[1]}
                       </TableCell>
@@ -131,6 +137,9 @@ const Events = () => {
 
   const eventMap = [];
   eventList.forEach((e) => {
+    const evTitleSplit = e[0].split('||');
+    e[0] = evTitleSplit[0];
+    if (evTitleSplit[1]) e.push(evTitleSplit[1]);
     const ojbInd = eventMap.findIndex((obj) => obj.name == e[0])
     if (ojbInd < 0)
       eventMap.push({

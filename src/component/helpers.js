@@ -6,6 +6,7 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
     const welkinCheck = state.monthlyPass;
     const bpChecked = state.battlePass;
     const simUChecked = state.simUniverse;
+    const currWarsChecked = state.currWars;
     const shopChecked = state.shopPulls;
     const memOfChaos = state.abyssStars[0] / 3 * 60 + 20 * Math.max(0, state.abyssStars[1] / 3 - 8);
     const pureFiction = state.abyssStars[1] * 60 + 20 * Math.max(0, state.abyssStars[1] - 8);
@@ -61,6 +62,9 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
                 gems += 320;
         }
         if (simUChecked && today.getDay() == 1) {
+            gems += simUMap[eqlvl];
+        }
+        if (currWarsChecked && today.getDay() == 1) {
             gems += simUMap[eqlvl];
         }
         gems += eventGems(today, includeEvents);

@@ -14,7 +14,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { useSelector, useDispatch } from "react-redux";
-import { setMonthlyPass, setBattlePass, setSimUniverse, setShopPulls, setAbyssStars, setEndDate } from "../actions/calcAction";
+import { setMonthlyPass, setBattlePass, setSimUniverse, setCurrWars, setShopPulls, setAbyssStars, setEndDate } from "../actions/calcAction";
 import { calcGems } from "./helpers";
 
 const Calculator = () => {
@@ -22,7 +22,7 @@ const Calculator = () => {
   const dispatch = useDispatch();
   const [gems, setGemsState] = useState("");
   const [bplvl, setBPLevel] = useState("");
-  const [eqlvl, setEqLevel] = useState(0);
+  const [eqlvl, setEqLevel] = useState(6);
   const [displayPulls, setPullsDisplay] = useState("");
 
   const handleMonthly = (e) => {
@@ -35,6 +35,10 @@ const Calculator = () => {
 
   const handleSimUniverse = (e) => {
     dispatch(setSimUniverse(e.target.checked));
+  };
+
+  const handleCurrWars = (e) => {
+    dispatch(setCurrWars(e.target.checked));
   };
 
   const handleShop = (e) => {
@@ -80,7 +84,8 @@ const Calculator = () => {
               <br/>
             </>}
             <FormControlLabel onChange={handleSimUniverse} control={<Checkbox checked={state.simUniverse} />} label="Collecting Simulated Universe rewards?" />
-            {state.simUniverse && <>
+            <FormControlLabel onChange={handleCurrWars} control={<Checkbox checked={state.currWars} />} label="Collecting Currency Wars rewards?" />
+            {(state.simUniverse || state.currWars) && <>
               <Typography>Current Equilibrium Level:</Typography>
               <br/>
               <Select

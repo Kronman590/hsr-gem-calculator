@@ -1,4 +1,4 @@
-import { SET_EVENTS, CLEAR_EVENTS, SET_MONTHLYPASS, SET_BATTLEPASS, SET_SIMUNIVERSE, SET_SHOPPULLS, SET_ABYSSSTARS, SET_ENDDATE, SET_GEMS, CLEAR_CALC } from "../actionTypes/actionTypes";
+import { SET_EVENTS, CLEAR_EVENTS, SET_MONTHLYPASS, SET_BATTLEPASS, SET_SIMUNIVERSE, SET_CURRWARS, SET_SHOPPULLS, SET_ABYSSSTARS, SET_ENDDATE, SET_GEMS, CLEAR_CALC } from "../actionTypes/actionTypes";
 import dayjs from 'dayjs';
 
 const today = new Date();
@@ -9,6 +9,7 @@ const initialState = {
   monthlyPass: false,
   battlePass: false,
   simUniverse: false,
+  currWars: false,
   shopPulls: false,
   abyssStars: [0,0,0],
   endDate: todayString,
@@ -45,6 +46,12 @@ export const calcReducer = (state = initialState, action) => {
       return {
         ...state,
         simUniverse: action.input,
+      };
+
+    case SET_CURRWARS:
+      return {
+        ...state,
+        currWars: action.input,
       };
 
     case SET_SHOPPULLS:
