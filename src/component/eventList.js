@@ -1,7 +1,7 @@
 export const eventList = [
     ["4.2 Patch Compensation","2026-04-21",600],
     ["Silver Wolf 999/Dahlia/Castorice/Firefly Trial","2026-04-21",80],
-    ["Trailblaze Mission: So Laughed the Masses","2026-03-24",640],
+    ["Trailblaze Mission: So Laughed the Masses","2026-03-24",500],
     ["To the Ones That Blaze","2026-04-21",1600],
     ["Cosmic Data Roaming","2026-04-21",160],
     ["Cosmic Data Roaming","2026-04-21",180],
