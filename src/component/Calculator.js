@@ -61,6 +61,10 @@ const Calculator = () => {
     handleStars([36, 12, 12]);
   }
 
+  const onMaxStarward = () => {
+    handleStars([39, 13, 13]);
+  }
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -133,6 +137,7 @@ const Calculator = () => {
                   <MenuItem value={30}>30 Stars</MenuItem>
                   <MenuItem value={33}>33 Stars</MenuItem>
                   <MenuItem value={36}>36 Stars</MenuItem>
+                  <MenuItem value={39}>Starward</MenuItem>
                 </Select>
               </Grid>
               <Grid item xs={3}>
@@ -158,6 +163,7 @@ const Calculator = () => {
                   <MenuItem value={10}>10 Stars</MenuItem>
                   <MenuItem value={11}>11 Stars</MenuItem>
                   <MenuItem value={12}>12 Stars</MenuItem>
+                  <MenuItem value={13}>Starward</MenuItem>
                 </Select>
               </Grid>
               <Grid item xs={3}>
@@ -183,11 +189,13 @@ const Calculator = () => {
                   <MenuItem value={10}>10 Stars</MenuItem>
                   <MenuItem value={11}>11 Stars</MenuItem>
                   <MenuItem value={12}>12 Stars</MenuItem>
+                  <MenuItem value={13}>Starward</MenuItem>
                 </Select>
               </Grid>
             </Grid>
             <Box/>
             <Button variant="contained" size="small" onClick={onMax}>Maximize endgame stars</Button>
+            <Button variant="contained" size="small" onClick={onMaxStarward}>Max Starward clear</Button>
             <Box/>
             <Typography>Select end date for calculation:</Typography>
             <Box/>
