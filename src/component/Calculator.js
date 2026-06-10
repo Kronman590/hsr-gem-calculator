@@ -194,8 +194,14 @@ const Calculator = () => {
               </Grid>
             </Grid>
             <Box/>
-            <Button variant="contained" size="small" onClick={onMax}>Maximize endgame stars</Button>
-            <Button variant="contained" size="small" onClick={onMaxStarward}>Max Starward clear</Button>
+            <Grid container>
+              <Grid item xs={6} display="flex" justifyContent="right">
+                <Button variant="contained" size="small" onClick={onMax}>Maximize endgame stars</Button>
+              </Grid>
+              <Grid item xs={6} display="flex" justifyContent="left">
+                <Button variant="contained" size="small" onClick={onMaxStarward}>Max Starward clear</Button>
+              </Grid>
+            </Grid>
             <Box/>
             <Typography>Select end date for calculation:</Typography>
             <Box/>

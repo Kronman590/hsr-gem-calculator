@@ -8,9 +8,9 @@ export const calcGems = (gemInput, bpInput, eqlvl, state) => {
     const simUChecked = state.simUniverse;
     const currWarsChecked = state.currWars;
     const shopChecked = state.shopPulls;
-    const memOfChaos = state.abyssStars[0] / 3 * 60 + 20 * Math.max(0, state.abyssStars[0] / 3 - 8) + 40 * Math.max(0, state.abyssStars[0] / 3 - 12);
-    const pureFiction = state.abyssStars[1] * 60 + 20 * Math.max(0, state.abyssStars[1] - 8) + 40 * Math.max(0, state.abyssStars[1] - 12);
-    const apocolypticShadow = state.abyssStars[2] * 60 + 20 * Math.max(0, state.abyssStars[2] - 8) + 40 * Math.max(0, state.abyssStars[2] - 12);
+    const memOfChaos = state.abyssStars[0] / 3 * 60 + 20 * Math.max(0, state.abyssStars[0] / 3 - 8) + 20 * Math.max(0, state.abyssStars[0] / 3 - 12);
+    const pureFiction = state.abyssStars[1] * 60 + 20 * Math.max(0, state.abyssStars[1] - 8) + 20 * Math.max(0, state.abyssStars[1] - 12);
+    const apocolypticShadow = state.abyssStars[2] * 60 + 20 * Math.max(0, state.abyssStars[2] - 8) + 20 * Math.max(0, state.abyssStars[2] - 12);
     var bplvl = Number(bpInput);
 
     const includeEvents = JSON.parse(JSON.stringify(state.selectedEvents));
