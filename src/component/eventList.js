@@ -1,8 +1,8 @@
 export const eventList = [
     ["4.5 Patch Compensation","2026-08-25",600],
     ["Robin Summeretto/Hyacine Trial","2026-08-25",40],
-    ["Trailblaze Mission: To Roll the Stars in Astropolis","2026-08-25",560],
-    ["Trailblaze Continuance: How to Lose Your Way to the Top","2026-08-25",560],
+    ["Trailblaze Mission: To Roll the Stars in Astropolis","2026-08-25",150],
+    ["Trailblaze Continuance: How to Lose Your Way to the Top","2026-08-25",150],
     ["Breaking Limits: Speeding Grand Prix","2026-08-25",40],
     ["Breaking Limits: Speeding Grand Prix","2026-08-25",160],
     ["Breaking Limits: Speeding Grand Prix","2026-08-25",40],
